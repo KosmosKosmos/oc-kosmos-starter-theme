@@ -1,0 +1,20 @@
+name: 'Footer Menü'
+items:
+    -
+        title: Impressum
+        type: cms-page
+        code: ''
+        reference: impressum
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Datenschutz
+        type: cms-page
+        code: ''
+        reference: datenschutz
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,28 @@
+<form data-request="onSubscription" data-request-success="this.reset();UIkit.notification('<span uk-icon=\'icon: check\'></span> {{'Danke für das Registrieren zum Newsletter. Schau mal in deinen Briefkasten.'|_}}')" class="uk-grid-small uk-margin" uk-grid id="subscriptionFomr">
+    <input type="hidden" name="category[]" value="0">
+    <div class="uk-width-2-5@s">
+        <input name="name" type="text" class="uk-width-1-1@s uk-input uk-form-width-medium" id="subscribersName" placeholder="{{'Name'|_ }}" required>
+    </div>
+    <div class="uk-width-2-5@s">
+        <input name="email" type="email" class="uk-width-1-1@s uk-input uk-form-width-medium" id="subscribersEmail" placeholder="{{'E-Mail'|_ }}" required>
+    </div>
+    <div>
+        <button type="submit" class="uk-button uk-button-default">{{'Absenden'|_}}</button>
+    </div>
+
+<!--
+    {% if category_count == 0 %}
+    <input type="hidden" name="category" value="0">
+    {% else %}
+    <div class="form-group">
+        <label>{{ text_category }}</label>
+        {% for category in category_list %}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="category[]" value="{{ category.id }}"> {{ category.name }}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}-->
+</form>

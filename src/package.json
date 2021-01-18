@@ -1,0 +1,38 @@
+{
+    "name": "kosmoskosmos",
+    "description": "Starter theme",
+    "repository": {
+        "type": "",
+        "url": ""
+    },
+    "version": "1.0.0",
+    "author": "kosmoskosmos",
+    "license": "ISC",
+    "scripts": {
+        "build": "parcel build scripts/main.js -d ../assets --no-source-maps --no-content-hash  --public-url ./",
+        "watch": "parcel watch scripts/main.js -d ../assets --public-url ./",
+        "preinstall": "npx npm-force-resolutions"
+    },
+    "alias": {
+        "vue$": "vue/dist/vue.min.js"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@vue/component-compiler-utils": "^3.2.0",
+        "cssnano": "^4.1.10",
+        "parcel-bundler": "^1.12.4",
+        "parcel-plugin-purgecss": "^3.0.0",
+        "sass": "^1.32.4",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "browserslist": "^4.16.1",
+        "caniuse-lite": "^1.0.30001178",
+        "uikit": "^3.6.11",
+        "vue": "^2.6.12",
+        "vue-hot-reload-api": "^2.3.4"
+    },
+    "resolutions": {
+        "node-forge": "^0.10.0"
+    }
+}

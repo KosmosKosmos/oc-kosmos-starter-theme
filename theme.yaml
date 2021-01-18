@@ -1,0 +1,15 @@
+name: kosmoskosmos
+description: 'Starter theme by KosmosKosmos made with love and UIkit.'
+author: kosmoskosmos
+homepage: 'https://kosmoskosmos.de'
+code: ''
+require:
+  - RainLab.Translate
+  - RainLab.Pages
+  - Panakour.Translate
+  - Luketowers.Essentialvars
+  - ToughDeveloper.ImageResizer
+  - DasRoteQuadrat.BetterContentEditor
+  - Indikator.News
+  - JanVince.SmallContactForm
+

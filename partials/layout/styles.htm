@@ -1,0 +1,13 @@
+description = "Styles"
+
+==
+<?php
+function onStart() {
+    $this['user'] = BackendAuth::getUser();
+}
+?>
+==
+<link rel="stylesheet" href="{{ 'assets/main.css' | theme }}" />
+{% if user %}
+    {% styles %}
+{% endif %}

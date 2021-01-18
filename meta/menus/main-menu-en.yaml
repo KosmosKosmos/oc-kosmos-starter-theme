@@ -1,0 +1,37 @@
+name: 'Main Menu'
+items:
+    -
+        title: Start
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: start
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'about us'
+        type: cms-page
+        code: ''
+        reference: ueberuns
+        viewBag:
+            isHidden: '1'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Services
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: leistungen
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

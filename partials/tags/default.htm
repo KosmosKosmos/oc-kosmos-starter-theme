@@ -1,0 +1,10 @@
+
+{% if __SELF__.items|length %}
+<ul class="uk-subnav uk-subnav-pill">
+    <li class="uk-active" uk-filter-control><a href="#">Alle</a></li>
+    {% for tag in __SELF__.items %}
+    <li uk-filter-control="[data-tags*='{{ tag.slug }}']"><a href="#">{{ tag.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+

@@ -1,0 +1,48 @@
+.blog-posts {
+    .uk-card-media-left {
+        img {
+            height: 100% !important;
+            width: auto !important;
+        }
+    }
+    .uk-card {
+        &:before, &:after {
+            opacity: 0;
+            transition: opacity .3s;
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        &:before {
+            border-left: 92px solid transparent;
+            border-bottom: 92px solid lighten(#000, 92);
+        }
+        &:after {
+            border-left: 90px solid transparent;
+            border-bottom: 90px solid lighten(#000, 95);
+        }
+        a.read-on {
+            position: absolute;
+            float: right;
+            bottom: 0;
+            right: 0;
+            padding: 15px 20px;
+            z-index: 2;
+            color: $global-color;
+            transition: color .3s;
+            text-decoration: none;
+        }
+        &:hover {
+            &:before, &:after {
+                opacity: 1;
+            }
+            a.read-on {
+                color: #333;
+            }
+        }
+    }
+}

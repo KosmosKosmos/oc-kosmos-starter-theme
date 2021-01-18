@@ -1,0 +1,56 @@
+description = "Seiten-Fuss"
+
+[viewBag]
+==
+<div class="footer uk-section-primary" id="footer">
+    <div class="uk-container uk-navbar-container uk-navbar-transparent">
+        <ul class="uk-navbar-nav uk-visible@m">
+            {% for item in mainMenuItems %}
+            <li class="{% if this.page.url == item.url[-this.page.url|length:] or this.page.url == '/' and item.title == 'Start' %} uk-active {% endif %}">
+                <a href="{{ item.url }}" {{loop.index == 1 ? 'class="uk-padding-remove-left"' : ''}}>
+                    {{ item.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <ul class="uk-nav uk-nav-default uk-hidden@m uk-padding-small uk-padding-remove-left">
+            {% for item in mainMenuItems %}
+            {% if not item.viewBag.isHidden or user %}
+            <li class="{% if this.page.url == item.url[-this.page.url|length:] or this.page.url == '/' and item.title == 'Start' %} uk-active {% endif %}">
+                <a href="{{ item.url }}" {{loop.index == 1 ? 'class="uk-padding-remove-left"' : ''}}>
+                    {{ item.title }}
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        <div class="uk-width-xxlarge@m">
+            <transition name="fade">
+                <div class="" id="toggle-newsletter" v-if="showNewsletter">
+                    {% component 'contenteditor' file='general/newsletter.htm' %}
+                    {% component 'newsSubscribe' %}
+                </div>
+            </transition>
+
+            <transition name="fade">
+                <div class="uk-margin-top" id="toggle-contact" v-if="showContact">
+                    {% component 'contenteditor' file='general/contact_form.htm' %}
+                    {% component 'contactForm' %}
+                </div>
+            </transition>
+        </div>
+
+        <div class="uk-align-left uk-padding-small uk-padding-remove-left">
+            {% for item in footerMenuItems %}
+            <small><a href="{{ item.url }}" class="uk-margin-small-right">{{ item.title }}</a></small>
+            {% endfor %}
+            <small><a class="uk-margin-small-right" @click="openNewsletter">{{'Newsletter abbonieren?'|_}}</a></small>
+            <small><a class="uk-margin-small-right" @click="openContact">{{'Kontakieren?'|_}}</a></small>
+        </div>
+        <div class="uk-align-right uk-padding-small uk-padding-remove-right">
+            {{app_name}} &copy; {{ 'now' | date('Y') }}
+        </div>
+    </div>
+</div>
+

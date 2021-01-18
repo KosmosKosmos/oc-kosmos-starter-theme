@@ -1,0 +1,18 @@
+description = "Einfache Seite"
+==
+
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <title>{{ this.page.title }} - Example</title>
+    {% partial 'layout/meta.htm' %}
+    {% partial 'layout/styles.htm' %}
+</head>
+<body class="page-{{ this.page.id }}">
+    {% partial 'layout/nav.htm' %}
+
+    {% page %}
+
+    {% partial 'layout/scripts.htm' %}
+</body>
+</html>

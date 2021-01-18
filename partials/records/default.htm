@@ -1,0 +1,20 @@
+<ul class="js-filter uk-child-width-1-1" uk-grid>
+    {% for record in __SELF__.items %}
+    <li data-tags="{% if record.tags|length %}{% for tag in record.tags %}{{ tag.slug }} {% endfor %}{% endif %}">
+        <div class="uk-comment uk-comment-primary">
+            <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+                <div class="uk-width-expand">
+                    <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{ record.name }}</a></h4>
+                    <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove">
+                        {% if record.tags|length %}{% for tag in record.tags %}<li>{{ tag.name }}</li>{% endfor %}{% endif %}
+                    </ul>
+                    <a class="read-on" href="{{ record.url }}" target="_blank">Weiter</a>
+                </div>
+            </header>
+            <div class="uk-comment-body">
+                {{ record.description|raw }}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

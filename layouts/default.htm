@@ -1,0 +1,66 @@
+description = "Standard Design"
+
+[localePicker]
+forceUrl = 0
+
+[newsSubscribe]
+
+[staticMenuMultilingual menu]
+code = "main-menu"
+
+[staticMenuMultilingual footerMenu]
+code = "footer-menu"
+
+[imageuploader]
+
+[contactForm]
+
+[DasRoteQuadrat\BetterContentEditor\Components\ContentEditor contenteditor]
+
+[staticPage]
+useContent = 1
+default = 0
+
+==
+<?php
+function onStart() {
+    $this['language'] = \RainLab\Translate\Classes\Translator::instance()->getLocale();
+    $this['user'] = BackendAuth::getUser();
+}
+?>
+==
+{% set mainMenuItems = menu.menuItems() %}
+{% set footerMenuItems = footerMenu.menuItems() %}
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <title>{{ this.page.title }} - {{app_name}}</title>
+    {% partial 'layout/meta.htm' %}
+    {% partial 'layout/styles.htm' %}
+</head>
+<body class="page-{{ this.page.id }}">
+    <div>
+        <header>
+        {% partial 'layout/navigation.main.htm' mainMenuItems=mainMenuItems %}
+        {% partial 'layout/navigation.sidemenu.htm' mainMenuItems=mainMenuItems %}
+        {% if this.page.id == 'start' %}
+        {% partial 'layout/header.htm' %}
+        {% else %}
+            <div class="uk-background-secondary uk-light">
+            <div class="uk-container uk-padding">
+                <h1 class="uk-heading-medium uk-text-center">{{ this.page.title }}</h1>
+            </div>
+            </div>
+        {% endif %}
+        </header>
+        <main>
+        {% page %}
+        </main>
+        <footer id="app">
+        {% partial 'layout/footer.htm' mainMenuItems=mainMenuItems footerMenuItems=footerMenuItems %}
+        {% partial 'layout/cookie-consent.htm' %}
+        </footer>
+    </div>
+    {% partial 'layout/scripts.htm' %}
+</body>
+</html>
