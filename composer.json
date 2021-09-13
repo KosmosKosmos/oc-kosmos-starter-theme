@@ -1,0 +1,8 @@
+{
+    "name": "kosmoskosmos/starter-theme",
+    "type": "october-theme",
+    "description": "A starter theme for KosmosKosmos projects",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
