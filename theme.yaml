@@ -1,8 +1,9 @@
-name: 'Kosmoskomos Starter-Theme'
+name: 'Kosmoskosmos Starter-Theme'
 description: 'Starter theme by KosmosKosmos made with love and UIkit.'
-author: kosmoskosmos
+author: 'KosmosKosmos Webentwicklung'
+authorCode: "KosmosKosmos"
+code: "Starter"
 homepage: 'https://kosmoskosmos.de'
-code: ''
 require:
   - RainLab.Translate
   - RainLab.Pages
