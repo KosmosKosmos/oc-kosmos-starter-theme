@@ -3,6 +3,10 @@
     "type": "october-theme",
     "description": "A starter theme for KosmosKosmos projects",
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "dasrotequadrat/bettercontenteditor-plugin": "git@github.com:KhardungLa/october-bettercontenteditor.git",
+        "rainlab/translate-plugin": "1.7.4",
+        "luketowers/oc-essentialvars-plugin": "v1.0.6",
+        "toughdeveloper/imageresizer": "v1.4.0"
     }
 }

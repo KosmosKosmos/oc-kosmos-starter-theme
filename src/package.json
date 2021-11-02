@@ -1,6 +1,7 @@
 {
-    "name": "kosmoskosmos",
-    "description": "Starter theme",
+    "name": "kosmoskosmos/starter-theme",
+    "type": "october-theme",
+    "description": "Unser Starter-Theme mit UIKit",
     "repository": {
         "type": "",
         "url": ""
@@ -9,30 +10,36 @@
     "author": "kosmoskosmos",
     "license": "ISC",
     "scripts": {
-        "build": "parcel build scripts/main.js -d ../assets --no-source-maps --no-content-hash  --public-url ./",
-        "watch": "parcel watch scripts/main.js -d ../assets --public-url ./",
+        "uikit-icons": "cd node_modules/uikit/; if [ -d 'custom' ]; then rm -rf custom && mkdir custom; fi; cp ../../uikit/icons/* custom; if [ ! -d 'node_modules' ]; then npm i; fi; npm run compile-js; cp dist/js/uikit-icons.min.js ../../../assets/js/",
+        "uikit-styles": "parcel build uikit/uikit.scss --dist-dir ../assets/styles --no-source-maps",
+        "build": "parcel build ./scripts/vue-app.js --dist-dir ../assets --no-source-maps",
+        "watch": "parcel watch ./scripts/vue-app.js --dist-dir ../assets",
         "preinstall": "npx npm-force-resolutions"
     },
+    "parcel-namer-rewrite": {
+        "chain": "@parcel/namer-default",
+        "rules": {
+            "(.*)\\.(css)": "styles/$1.$2",
+            "(.*)\\.(js)": "js/$1.$2",
+            "(.*)\\.(woff2?)": "fonts/$1.$2",
+            "(.*)\\.(svg|png|gif|jpg)": "images/$1.$2"
+        },
+        "silent" : true
+    },
+    "require": {
+        "composer/installers": "~1.0"
+    },
     "alias": {
-        "vue$": "vue/dist/vue.min.js"
+        "components": "./scripts/components"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.10",
-        "@vue/component-compiler-utils": "^3.2.0",
-        "cssnano": "^4.1.10",
-        "parcel-bundler": "^1.12.4",
-        "parcel-plugin-purgecss": "^3.0.0",
-        "sass": "^1.32.4",
-        "vue-template-compiler": "^2.6.12"
+        "@parcel/transformer-sass": "^2.0.0",
+        "@parcel/transformer-vue": "^2.0.0",
+        "parcel": "^2.0.0",
+        "parcel-namer-rewrite": "^2.0.0-rc.1"
     },
     "dependencies": {
-        "browserslist": "^4.16.1",
-        "caniuse-lite": "^1.0.30001178",
-        "uikit": "^3.6.11",
-        "vue": "^2.6.12",
-        "vue-hot-reload-api": "^2.3.4"
-    },
-    "resolutions": {
-        "node-forge": "^0.10.0"
+        "uikit": "^3.8.0",
+        "vue": "^3.2.21"
     }
 }

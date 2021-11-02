@@ -64,7 +64,6 @@
     }
 </script>
 <style lang="scss">
-    @import "../../styles/variables";
     #cookie-consent {
         padding: 25px;
         position: fixed;
@@ -74,6 +73,5 @@
         border-radius: 5px;
         box-shadow: 0 -3px 32px rgba(0,0,0,.16);
         max-width: 24em;
-        background-color: $global-secondary-background;
     }
 </style>

@@ -3,31 +3,13 @@ description = "Standard Design"
 [localePicker]
 forceUrl = 0
 
-[newsSubscribe]
-
-[staticMenuMultilingual menu]
+[staticMenu menu]
 code = "main-menu"
-
-[staticMenuMultilingual footerMenu]
-code = "footer-menu"
 
 [imageuploader]
 
-[contactForm]
+[contenteditor]
 
-[DasRoteQuadrat\BetterContentEditor\Components\ContentEditor contenteditor]
-
-[staticPage]
-useContent = 1
-default = 0
-
-==
-<?php
-function onStart() {
-    $this['language'] = \RainLab\Translate\Classes\Translator::instance()->getLocale();
-    $this['user'] = BackendAuth::getUser();
-}
-?>
 ==
 {% set mainMenuItems = menu.menuItems() %}
 {% set footerMenuItems = footerMenu.menuItems() %}
