@@ -1,5 +1,5 @@
 {
-    "name": "oc_komosmos_starter-theme",
+    "name": "kosmoskosmos/starter-theme",
     "type": "october-theme",
     "description": "A starter theme for KosmosKosmos projects",
     "require": {
