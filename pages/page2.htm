@@ -1,0 +1,19 @@
+title = "Seite2"
+url = "/page2"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[kosmosContactForm]
+file = "contact.yaml"
+hideOnSubmit = 1
+twoColumns = 1
+==
+<div class="uk-section uk-container">
+    <div class="uk-margin-large-bottom">
+    {% component 'contenteditor' file = this.page.id~'/text1.htm' %}
+    </div>
+
+    {% component "kosmosContactForm" %}
+</div>

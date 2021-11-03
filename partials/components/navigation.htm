@@ -1,0 +1,83 @@
+[viewBag]
+
+[staticMenu headerMenu]
+code = "hauptmenue"
+==
+<!--HEADER-NAVIGATION-->
+<div uk-sticky="top: header" class="uk-background-primary">
+    <div class="uk-container">
+        <nav class="uk-background-primary uk-light" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-hidden@m uk-navbar-toggle" uk-toggle="target: #sidenav"  uk-navbar-toggle-icon></a>
+                <a href="{{ 'home'|page }}" class="uk-navbar-item uk-logo">
+                    <img src="{{ 'assets/images/logo.svg'|theme }}" uk-svg>
+                    {{app_name}}
+                </a>
+            </div>
+            <div class="uk-navbar-center uk-visible@m">
+                <ul class="uk-navbar-nav">
+                    {% for item in headerMenu.menuItems if not item.viewBag.isHidden %}
+                    <li class="{% if item.isChildActive or item.isActive %}uk-active{% endif %} {{item.viewBag.cssClass}}">
+                        <a href="{{ item.url }}">{{ item.title }}</a>
+                        {% if (item.items | length) %}
+                        <div class="uk-navbar-dropdown" *ngIf="page.subPages" uk-dropdown="offset: -20; flip: false" uk-toggle>
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                {% for subItem in item.items if not subItem.viewBag.isHidden %}
+                                <li class="{{ activeSub == subItem.url ? 'uk-active' : ''}} {{subItem.viewBag.cssClass}}">
+                                    <a href="{{ subItem.url }}">{{ subItem.title}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="uk-navbar-right">
+                {% if (locales | length) > 1 %}
+                <ul class="uk-iconnav">
+                    {% for code, name in locales %}
+                    <li class="{{ code == activeLocale ? 'uk-active' : '' }}">
+                        <a href="#" class="uk-text-uppercase" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'">
+                            {{ code }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!--SIDE-NAVIGATION-->
+<div id="sidenav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-background-primary">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav uk-nav-default">
+            <li class="uk-nav-header">
+                <a href="{{ 'home'|page }}" class="uk-display-block">
+                    {{app_name}} <br>
+                    <img src="{{ 'assets/images/logo_light.svg'|theme }}" uk-svg style="width: 60px">
+                </a>
+            </li>
+            <li class="uk-nav-divider"></li>
+            {% for item in headerMenu.menuItems if not item.viewBag.isHidden %}
+            <li class="{% if item.isChildActive or item.isActive %}uk-active{% endif %} {{item.viewBag.cssClass}}">
+                <a href="{{ item.url }}">{{ item.title }}</a>
+                {% if (item.items | length) %}
+                <ul class="uk-nav-sub">
+                    {% for subItem in item.items if not subItem.viewBag.isHidden %}
+                    <li class="{% if subItem.isActive %}uk-active{% endif %} {{subItem.viewBag.cssClass}}">
+                        <a href="{{ subItem.url }}">{{ subItem.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

@@ -1,48 +1,41 @@
-description = "Standard Design"
+description = "Standard-Layout"
+
+[contenteditor]
+
+[imageuploader]
 
 [localePicker]
 forceUrl = 0
 
-[staticMenu menu]
-code = "main-menu"
+[cookieBanner]
+include_css = 1
+update_partial = "gdpr"
+update_selector = "#gdpr-reload"
+cookie_manager_page = "cookies"
 
-[imageuploader]
-
-[contenteditor]
-
+[consentManager]
+include_assets = 1
 ==
-{% set mainMenuItems = menu.menuItems() %}
-{% set footerMenuItems = footerMenu.menuItems() %}
 <!DOCTYPE html>
-<html lang="{{ language }}">
-<head>
-    <title>{{ this.page.title }} - {{app_name}}</title>
-    {% partial 'layout/meta.htm' %}
-    {% partial 'layout/styles.htm' %}
-</head>
-<body class="page-{{ this.page.id }}">
-    <div>
+<html>
+    <head>
+        {% partial 'components/meta.htm' %}
+        {% partial 'components/styles.htm' %}
+    </head>
+
+    <body class="page-{{ this.page.id }}">
         <header>
-        {% partial 'layout/navigation.main.htm' mainMenuItems=mainMenuItems %}
-        {% partial 'layout/navigation.sidemenu.htm' mainMenuItems=mainMenuItems %}
-        {% if this.page.id == 'start' %}
-        {% partial 'layout/header.htm' %}
-        {% else %}
-            <div class="uk-background-secondary uk-light">
-            <div class="uk-container uk-padding">
-                <h1 class="uk-heading-medium uk-text-center">{{ this.page.title }}</h1>
-            </div>
-            </div>
-        {% endif %}
+        {% partial 'components/navigation' %}
+        {% partial 'components/keyvisual' %}
         </header>
-        <main>
+
+        <main uk-height-viewport="expand: true">
         {% page %}
         </main>
-        <footer id="app">
-        {% partial 'layout/footer.htm' mainMenuItems=mainMenuItems footerMenuItems=footerMenuItems %}
-        {% partial 'layout/cookie-consent.htm' %}
+
+        <footer>
+        {% partial "components/footer" %}
         </footer>
-    </div>
-    {% partial 'layout/scripts.htm' %}
-</body>
+        {% partial 'components/scripts.htm' %}
+    </body>
 </html>

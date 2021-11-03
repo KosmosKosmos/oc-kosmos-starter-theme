@@ -2,3 +2,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+:focus[data-editable], :focus.ce-element {
+    outline: none !important;
+    outline-offset: 7px;
+}
+
+.form-generator-wrapper .section:not(:first-child) {
+    margin-top: 0 !important;
+}
