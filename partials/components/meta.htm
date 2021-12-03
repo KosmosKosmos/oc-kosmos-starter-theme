@@ -2,7 +2,6 @@ description = "Meta Information"
 
 [viewBag]
 
-[SeoCmsPage]
 ==
 <!-- Meta data -->
 <meta charset="UTF-8">
@@ -22,8 +21,6 @@ description = "Meta Information"
 <meta name="twitter:card" content="summary_large_image">
 {% if not (robot_index and robot_follow) %}
 <meta name="robots" content="index,follow">
-{% else %}
-{% component "SeoCmsPage" %}
 {% endif %}
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{ app_logo | resize(57, 57) }}">

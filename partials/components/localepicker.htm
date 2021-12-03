@@ -1,0 +1,9 @@
+{% if (locales | length) > 1 %}
+    {% for code, name in locales %}
+    <li class="{{ code == activeLocale ? 'uk-active' : '' }}">
+        <a href="#" class="uk-text-uppercase" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'">
+            {{ code }}
+        </a>
+    </li>
+    {% endfor %}
+{% endif %}

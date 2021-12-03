@@ -1,6 +1,5 @@
 {
-    "name": "kosmoskosmos/starter-theme",
-    "type": "october-theme",
+    "name": "kosmoskosmos-starter-theme",
     "description": "Unser Starter-Theme mit UIKit",
     "repository": {
         "type": "",
@@ -10,8 +9,7 @@
     "author": "kosmoskosmos",
     "license": "ISC",
     "scripts": {
-        "uikit-icons": "cd node_modules/uikit/; if [ -d 'custom' ]; then rm -rf custom && mkdir custom; fi; cp ../../uikit/icons/* custom; if [ ! -d 'node_modules' ]; then npm i; fi; npm run compile-js; cp dist/js/uikit-icons.min.js ../../../assets/js/",
-        "uikit-styles": "parcel build uikit/uikit.scss --dist-dir ../assets/styles --no-source-maps",
+        "uikit-icons": "cd node_modules/uikit/; if [ -d 'custom' ]; then rm -rf custom; fi; mkdir custom && mkdir custom/icons && cp ../../icons/* custom/icons; if [ ! -d 'node_modules' ]; then npm i; fi; npm run compile-js; cp dist/js/uikit-icons.min.js ../../../assets/js/",
         "build": "parcel build ./scripts/vue-app.js --dist-dir ../assets --no-source-maps",
         "watch": "parcel watch ./scripts/vue-app.js --dist-dir ../assets",
         "preinstall": "npx npm-force-resolutions"
@@ -25,9 +23,6 @@
             "(.*)\\.(svg|png|gif|jpg)": "images/$1.$2"
         },
         "silent" : true
-    },
-    "require": {
-        "composer/installers": "~1.0"
     },
     "alias": {
         "components": "./scripts/components"

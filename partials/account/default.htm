@@ -1,0 +1,25 @@
+description = "ACCOUNT default"
+
+[viewBag]
+==
+
+{% if not user or user.is_guest %}
+
+<div id="login-modal" class="forgot-password {{open ? 'uk-open':''}}" style="{{open ? 'display:block'}}" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body login-panel" >
+        <div class="uk-text-center">
+            <img src="{{'assets/images/logo.svg'|theme}}" uk-svg>
+        </div>
+        <h2 class="uk-modal-title">{{'Anmelden'|_}}</h2>
+        {% partial __SELF__ ~ '::signin' %}
+    </div>
+</div>
+
+<div id="register-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">{{'Registrieren'|_}}</h2>
+        {% partial __SELF__ ~ '::register' %}
+    </div>
+</div>
+
+{% endif %}

@@ -1,0 +1,40 @@
+
+<p>
+    Bitte überprüfen Sie Ihre E-Mail für den Aktivierungscode.
+</p>
+
+<form
+    data-request="{{ __SELF__ }}::onResetPassword"
+    data-request-update="'{{ __SELF__ }}::complete': '#forgot-password-modal-content'">
+    <div class="uk-margin">
+        <label class="uk-form-label" for="resetCode">Aktivierungscode</label>
+        <div class="uk-form-controls">
+            <input
+                    name="code"
+                    type="text"
+                    class="uk-input"
+                    id="resetCode"
+                    value="{{ __SELF__.code }}"
+                    placeholder="Geben Sie den Aktivierungscode ein" />
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-resetPassword">Neues Passwort</label>
+        <div class="uk-form-controls">
+            <input
+                    name="password"
+                    type="password"
+                    class="uk-input"
+                    id="form-stacked-resetPassword"
+                    placeholder="Geben Sie ein neues Passwort ein" />
+        </div>
+    </div>
+
+
+    <p class="uk-text-right">
+        <button class="uk-button uk-button-default uk-modal-close" type="button">Abbrechen</button>
+        <button type="submit" class="uk-button uk-button-primary">Passwort zurücksetzen</button>
+    </p>
+
+</form>

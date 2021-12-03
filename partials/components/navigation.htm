@@ -4,25 +4,25 @@
 code = "hauptmenue"
 ==
 <!--HEADER-NAVIGATION-->
-<div uk-sticky="top: header" class="uk-background-primary">
+<div uk-sticky="" class="uk-background-primary">
     <div class="uk-container">
         <nav class="uk-background-primary uk-light" uk-navbar>
             <div class="uk-navbar-left">
                 <a class="uk-hidden@m uk-navbar-toggle" uk-toggle="target: #sidenav"  uk-navbar-toggle-icon></a>
                 <a href="{{ 'home'|page }}" class="uk-navbar-item uk-logo">
-                    <img src="{{ 'assets/images/logo.svg'|theme }}" uk-svg>
-                    {{app_name}}
+                    <img src="{{ 'assets/images/logo.svg'|theme }}" style="height: 40px; width: auto" uk-svg>
+                    <span class="uk-visible@m uk-margin-small-left">{{app_name}}</span>
                 </a>
             </div>
-            <div class="uk-navbar-center uk-visible@m">
+            <div class="uk-navbar-right uk-visible@m">
                 <ul class="uk-navbar-nav">
-                    {% for item in headerMenu.menuItems if not item.viewBag.isHidden %}
+                    {% for item in headerMenu.menuItems|filter(i => not i.viewBag.isHidden) %}
                     <li class="{% if item.isChildActive or item.isActive %}uk-active{% endif %} {{item.viewBag.cssClass}}">
                         <a href="{{ item.url }}">{{ item.title }}</a>
-                        {% if (item.items | length) %}
+                        {% if (item.items |filter(i => not i.viewBag.isHidden) | length) %}
                         <div class="uk-navbar-dropdown" *ngIf="page.subPages" uk-dropdown="offset: -20; flip: false" uk-toggle>
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                {% for subItem in item.items if not subItem.viewBag.isHidden %}
+                                {% for subItem in item.items|filter(i => not i.viewBag.isHidden) %}
                                 <li class="{{ activeSub == subItem.url ? 'uk-active' : ''}} {{subItem.viewBag.cssClass}}">
                                     <a href="{{ subItem.url }}">{{ subItem.title}}</a>
                                 </li>
@@ -36,17 +36,10 @@ code = "hauptmenue"
             </div>
 
             <div class="uk-navbar-right">
-                {% if (locales | length) > 1 %}
+
                 <ul class="uk-iconnav">
-                    {% for code, name in locales %}
-                    <li class="{{ code == activeLocale ? 'uk-active' : '' }}">
-                        <a href="#" class="uk-text-uppercase" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'">
-                            {{ code }}
-                        </a>
-                    </li>
-                    {% endfor %}
+                    {% partial "components/localepicker" %}
                 </ul>
-                {% endif %}
             </div>
         </nav>
     </div>
@@ -56,18 +49,17 @@ code = "hauptmenue"
 <div id="sidenav" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar uk-background-primary">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav uk-nav-default">
+        <ul class="uk-nav uk-nav-default uk-text-large">
             <li class="uk-nav-header">
                 <a href="{{ 'home'|page }}" class="uk-display-block">
-                    {{app_name}} <br>
-                    <img src="{{ 'assets/images/logo_light.svg'|theme }}" uk-svg style="width: 60px">
+                    <img src="{{ 'assets/images/logo.svg'|theme }}" uk-svg style="width: 60px">
                 </a>
             </li>
             <li class="uk-nav-divider"></li>
             {% for item in headerMenu.menuItems if not item.viewBag.isHidden %}
             <li class="{% if item.isChildActive or item.isActive %}uk-active{% endif %} {{item.viewBag.cssClass}}">
                 <a href="{{ item.url }}">{{ item.title }}</a>
-                {% if (item.items | length) %}
+                {% if (item.items |filter(i => not i.viewBag.isHidden) | length) %}
                 <ul class="uk-nav-sub">
                     {% for subItem in item.items if not subItem.viewBag.isHidden %}
                     <li class="{% if subItem.isActive %}uk-active{% endif %} {{subItem.viewBag.cssClass}}">
@@ -78,6 +70,25 @@ code = "hauptmenue"
                 {% endif %}
             </li>
             {% endfor %}
+            <li class="uk-nav-divider"></li>
+            {% if user %}
+            <li {% if (myAccount.accountPage|page) == (''|page) %}class="uk-active"{% endif %}>
+                <a href="{{ myAccount.accountPage | page }}">
+                    {{ 'offline.mall::frontend.account' | trans }}
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" data-request="onLogout" data-request-data="redirect: '{{ 'home' | page }}'">
+                    {{ 'offline.mall::frontend.session.logout' | trans }}
+                </a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ 'shop/login' | page }}">
+                    {{ 'offline.mall::frontend.account' | trans }}
+                </a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </div>

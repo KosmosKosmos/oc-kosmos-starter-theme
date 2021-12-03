@@ -1,0 +1,93 @@
+{{ form_ajax('onUpdate', {flash: true, files: true, data: { id: 2 }})}}
+<div uk-grid>
+    <div class="uk-width-2-3@m">
+
+        <div id="update-form" class="deactivate-option">
+            <div class="uk-grid uk-grid-small uk-child-width-1-2">
+                <div>
+                    <label class="uk-form-label" for="form-stacked-name">{{'Dein vollständigen Namen'|_}}</label>
+                    <div class="uk-form-controls">
+                        <input  name="name"
+                                type="text"
+                                class="uk-input"
+                                id="form-stacked-name"
+                                value="{{ user.name }}"
+                                placeholder="Gib deinen vollständigen Namen ein" />
+                    </div>
+                </div>
+                <div>
+                    <label class="uk-form-label" for="form-stacked-name">{{'Dein Benutzername'|_}}</label>
+                    <div class="uk-form-controls">
+                        <input  name="username"
+                                type="text"
+                                class="uk-input"
+                                id="form-stacked-name"
+                                value="{{ user.username }}"
+                                placeholder="Gib deinen Benutzername ein" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-email">E-Mail</label>
+                <div class="uk-form-controls">
+                    <input  name="email"
+                            type="email"
+                            class="uk-input"
+                            id="form-stacked-email"
+                            value="{{ user.email }}"
+                            placeholder="Gib deine E-Mai-Adresse ein" />
+                </div>
+            </div>
+
+            <div class="uk-grid uk-grid-small uk-child-width-1-2 uk-margin">
+                <div>
+                    <label class="uk-form-label" for="form-stacked-password">{{'Passwort'|_}}</label>
+                    <div class="uk-form-controls">
+                        <input  name="password"
+                                type="password"
+                                class="uk-input"
+                                id="form-stacked-password"
+                                placeholder="Gib dein neues Passwort ein" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="uk-form-label" for="form-stacked-password_confirmation">{{'Passwort wiederholen'|_}}</label>
+                    <div class="uk-form-controls">
+                        <input  name="password_confirmation"
+                                type="password"
+                                class="uk-input"
+                                id="form-stacked-password_confirmation"
+                                placeholder="Wiederhole das Passwort" />
+                    </div>
+                </div>
+            </div>
+
+            {% if updateRequiresPassword %}
+                <p>{{'Um diese Details zu ändern, bestätigen Sie bitte Ihr aktuelles Passwort.'|_}}</p>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-password_current">{{'Aktuelles Passwort'|_}}</label>
+                    <div class="uk-form-controls">
+                        <input  name="password_current"
+                                type="password"
+                                class="uk-input"
+                                id="form-stacked-password_current"
+                                placeholder="Geben Sie Ihr aktuelles Passwort ein" />
+                    </div>
+                </div>
+            {% endif %}
+
+            <p class="uk-text-right uk-margin">
+                <button type="submit" class="uk-button uk-button-primary">{{'Aktualisieren'|_}}</button>
+            </p>
+
+
+        </div>
+    </div>
+    <div class="uk-width-1-3@m">
+        <upload-avatar current="{{user.avatar.path ? user.avatar.path : ('assets/images/logo_small_red.svg'|theme)}}"></upload-avatar>
+    </div>
+
+</div>
+{{ form_close() }}

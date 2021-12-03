@@ -1,7 +1,7 @@
 [viewBag]
 ==
 {% if this.page.id == 'home' %}
-{# with video #}
+{# with video
 <div class="uk-cover-container uk-position-relative" uk-height-viewport="offset-top: true">
     <video loop muted playsinline uk-cover uk-video="autoplay: inview">
         <source src="{{'assets/videos/header.mp4'|theme}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
@@ -26,9 +26,9 @@
         </div>
     </div>
 </div>
-
-{# with image
-{% component 'imageuploader' item=this.page.id~i class="uk-background-cover" leaveOpen=true size=1700 attributes='uk-height-viewport=offset-top:true' tag="div" %}
+#}
+{# with image#}
+{% component 'imageuploader' item=this.page.id class="uk-background-cover" leaveOpen=true size=1700 attributes='uk-height-viewport=offset-top:true' tag="div" %}
 <div class="uk-position-center uk-light uk-text-center uk-position-z-index">
     <img src="{{'assets/images/logo_light.svg' | theme}}" class="banner-logo uk-margin-bottom">
     <div class="uk-margin-remove">
@@ -48,16 +48,17 @@
     </div>
 </div>
 </div>
-#}
 
 {% else %}
 
 <div class="uk-background-primary">
-    <div class="uk-height-small uk-background-contain uk-position-relative uk-container" style="background-image: url({{'assets/images/mountain.svg'|theme}}); background-size: 20%; background-position: 50% 110%">
-        <div class="uk-text-left uk-flex uk-flex-column uk-flex-around uk-light" style="height: 100%">
-            <div class="uk-text-left">
-                <h5 class="uk-margin-remove">{{app_name}}</h5>
-                <h1 class="uk-margin-remove">{{ this.page.title }}</h1>
+    <div class="uk-container">
+        <div class="uk-height-small uk-background-contain uk-position-relative" style="background-image: url({{'assets/images/mountain.svg'|theme}}); background-size: 20%; background-position: 50% 110%">
+            <div class="uk-text-left uk-flex uk-flex-column uk-flex-around uk-light" style="height: 100%; width: 100%">
+                <div class="uk-text-left">
+                    <h5 class="uk-margin-remove">{{app_name}}</h5>
+                    <h1 class="uk-margin-remove">{{ this.page.title }}</h1>
+                </div>
             </div>
         </div>
     </div>
