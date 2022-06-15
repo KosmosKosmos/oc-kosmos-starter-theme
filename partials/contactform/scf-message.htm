@@ -1,0 +1,49 @@
+
+{% if formSentAlias == __SELF__.alias %}
+
+{% if formSuccess %}
+
+{{ __SELF__.getGaSuccessEventHtmlCode(true)|raw }}
+
+{% flash success %}
+<div uk-alert class="uk-alert {{ type == 'error' ? 'uk-alert-danger'}}">
+    <div class="uk-grid">
+        <div class="uk-width-1-5@m uk-text-center">
+            {% if type == 'error' %}
+            <span class="uk-margin-small-right uk-icon" uk-icon="warning"><svg width="80" height="80" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="14" r="1"></circle><circle fill="none" stroke="#000" stroke-width="1.1" cx="10" cy="10" r="9"></circle><path d="M10.97,7.72 C10.85,9.54 10.56,11.29 10.56,11.29 C10.51,11.87 10.27,12 9.99,12 C9.69,12 9.49,11.87 9.43,11.29 C9.43,11.29 9.16,9.54 9.03,7.72 C8.96,6.54 9.03,6 9.03,6 C9.03,5.45 9.46,5.02 9.99,5 C10.53,5.01 10.97,5.44 10.97,6 C10.97,6 11.04,6.54 10.97,7.72 L10.97,7.72 Z"></path></svg></span>
+            {% else %}
+            <span class="uk-margin-small-right uk-icon" uk-icon="check"><svg width="80" height="80" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.1" points="4,10 8,15 17,4"></polyline></svg></span>
+            {% endif %}
+        </div>
+        <div class="uk-width-expand">
+            <p>{{ html_entity_decode(message)|nl2br }}</p>
+        </div>
+    </div>
+</div>
+
+{% endflash %}
+
+{% elseif formError %}
+
+{% flash error %}
+
+<div uk-alert class="uk-alert {{ type == 'error' ? 'uk-alert-danger'}}">
+    <div class="uk-grid">
+        <div class="uk-width-1-5@m uk-text-center">
+            {% if type == 'error' %}
+            <span class="uk-margin-small-right uk-icon" uk-icon="warning"><svg width="80" height="80" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="14" r="1"></circle><circle fill="none" stroke="#000" stroke-width="1.1" cx="10" cy="10" r="9"></circle><path d="M10.97,7.72 C10.85,9.54 10.56,11.29 10.56,11.29 C10.51,11.87 10.27,12 9.99,12 C9.69,12 9.49,11.87 9.43,11.29 C9.43,11.29 9.16,9.54 9.03,7.72 C8.96,6.54 9.03,6 9.03,6 C9.03,5.45 9.46,5.02 9.99,5 C10.53,5.01 10.97,5.44 10.97,6 C10.97,6 11.04,6.54 10.97,7.72 L10.97,7.72 Z"></path></svg></span>
+            {% else %}
+            <span class="uk-margin-small-right uk-icon" uk-icon="check"><svg width="80" height="80" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.1" points="4,10 8,15 17,4"></polyline></svg></span>
+            {% endif %}
+        </div>
+        <div class="uk-width-expand">
+            <p>{{ html_entity_decode(message)|nl2br }}</p>
+        </div>
+    </div>
+</div>
+
+{% endflash %}
+
+{% endif %}
+
+{% endif %}
