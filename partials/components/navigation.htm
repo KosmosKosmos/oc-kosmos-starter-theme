@@ -56,7 +56,7 @@ code = "hauptmenue"
                 </a>
             </li>
             <li class="uk-nav-divider"></li>
-            {% for item in headerMenu.menuItems if not item.viewBag.isHidden %}
+            {% for item in headerMenu.menuItems|filter(i => not i.viewBag.isHidden) %}
             <li class="{% if item.isChildActive or item.isActive %}uk-active{% endif %} {{item.viewBag.cssClass}}">
                 <a href="{{ item.url }}">{{ item.title }}</a>
                 {% if (item.items |filter(i => not i.viewBag.isHidden) | length) %}
