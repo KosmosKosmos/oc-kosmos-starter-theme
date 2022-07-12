@@ -10,7 +10,7 @@ require:
   - Panakour.Translate
   - Luketowers.Essentialvars
   - ToughDeveloper.ImageResizer
-  - DasRoteQuadrat.BetterContentEditor
+#  - DasRoteQuadrat.BetterContentEditor
   - Indikator.News
   - JanVince.SmallContactForm
 
