@@ -3,8 +3,11 @@ url = "/cookies"
 layout = "default"
 is_hidden = 0
 
-[cookieManager]
+[cookieManager cookieManagerPage]
+include_css = 0
+include_js = 1
+deferred = 0
 ==
 <div class="uk-section uk-container">
-    {% component 'cookieManager' %}
+    {% component 'cookieManagerPage' %}
 </div>

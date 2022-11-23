@@ -1,0 +1,33 @@
+name: Hauptmenü
+items:
+    -
+        title: Example
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: example
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: Example
+                    url: ''
+                de:
+                    title: Beispiel
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Dings
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: dings
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

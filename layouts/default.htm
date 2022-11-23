@@ -8,13 +8,15 @@ description = "Standard-Layout"
 forceUrl = 0
 
 [cookieBanner]
-include_css = 1
-update_partial = "gdpr"
+include_css = 0
+update_partial = "components/cookie_js"
 update_selector = "#gdpr-reload"
 cookie_manager_page = "cookies"
 
-[consentManager]
-include_assets = 1
+[cookieManager]
+include_css = 0
+include_js = 1
+deferred = 0
 ==
 <!DOCTYPE html>
 <html>
@@ -33,9 +35,8 @@ include_assets = 1
         {% page %}
         </main>
 
-        <footer>
         {% partial "components/footer" %}
-        </footer>
+        {% partial "components/cookies" %}
         {% partial 'components/scripts.htm' %}
     </body>
 </html>

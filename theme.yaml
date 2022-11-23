@@ -5,12 +5,24 @@ authorCode: "KosmosKosmos"
 code: "Starter"
 homepage: 'https://kosmoskosmos.de'
 require:
-  - RainLab.Translate
+#  - RainLab.Translate
   - RainLab.Pages
   - Panakour.Translate
   - Luketowers.Essentialvars
-  - ToughDeveloper.ImageResizer
+#  - ToughDeveloper.ImageResizer
 #  - DasRoteQuadrat.BetterContentEditor
 #  - Indikator.News
-  - JanVince.SmallContactForm
+#  - JanVince.SmallContactForm
 
+form:
+    fields:
+        primary_color:
+            label: Hauptfarbe
+            type: colorpicker
+            default: 8618c2
+            assetVar: 'primaryColor'
+        secondary_color:
+            label: Zweitfarbe
+            type: colorpicker
+            default: 055554
+            assetVar: 'secondaryColor'

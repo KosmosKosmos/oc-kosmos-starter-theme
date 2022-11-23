@@ -1,0 +1,15 @@
+<p class="uk-text-right">
+    <select class="uk-select uk-width-auto" name="consent_expiry" id="gdpr">
+        {% for i in [3, 6, 12, 24, 36] %}
+        {% set selected = __SELF__.consentExpiry | default(12) %}
+        <option value="{{ i }}" {{ selected == i ? 'selected' }}>
+        {{ ('offline.gdpr::lang.cookie_manager.expiry.' ~ i) | trans }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="uk-button uk-button-primary">
+        {{ 'offline.gdpr::lang.common.save_settings' | trans }}
+    </button>
+</p>
+

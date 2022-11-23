@@ -1,0 +1,9 @@
+{# //execute code only if cookie allowed
+
+{% if gdprCookieAllowed('google') %}
+<script>
+    console.log('google has been activated');
+</script>
+{% endif %}
+
+#}

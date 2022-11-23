@@ -1,0 +1,12 @@
+<div class="gdpr-banner__settings">
+    <button class="uk-button uk-button-link uk-margin-small-right" type="button" uk-toggle="target: #cookie-modal">{{ 'offline.gdpr::lang.cookie_banner.advanced_settings' | trans }}</button>
+
+    {#
+    <a role="link" rel="privacy" href="{{ __SELF__.cookieManagerPage | page }}"
+       data-request="onDecline"
+       data-request-success="document.location.href = '{{ __SELF__.cookieManagerPage | page }}'"
+    >
+        {{ 'offline.gdpr::lang.cookie_banner.advanced_settings' | trans }}
+    </a>
+    #}
+</div>

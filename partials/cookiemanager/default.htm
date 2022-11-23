@@ -1,0 +1,13 @@
+{% if __SELF__.cookieGroups | length %}
+    {% partial __SELF__ ~ '::modal' %}
+    {% partial __SELF__ ~ '::settingsbutton' %}
+
+    {% if __SELF__.includeJs %}
+        {% put scripts %}
+            <script>
+                {% partial __SELF__ ~ '::scripts.htm' %}
+            </script>
+        {% endput %}
+    {% endif %}
+{% endif %}
+

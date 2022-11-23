@@ -1,0 +1,59 @@
+items:
+    -
+        title: HOME
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: home
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: PRESSE
+        nesting: null
+        type: url
+        url: /press-kit
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: IMPRESSUM
+        nesting: null
+        type: url
+        url: /imprint
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: DATENSCHUTZ
+        nesting: null
+        type: cms-page
+        reference: privacy
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: COOKIE-EINSTELLUNGEN
+        type: cms-page
+        code: uk-toggle
+        reference: cookies
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: Footer

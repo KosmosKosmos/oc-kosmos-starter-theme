@@ -1,0 +1,37 @@
+items:
+    -
+        title: Discord
+        nesting: null
+        type: url
+        url: https://discord.gg/xxxxxxx
+        code: icon
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: discord
+            isExternal: '1'
+    -
+        title: Twitter
+        type: url
+        url: https://twitter.com/xxxxxxx
+        code: icon
+        viewBag:
+            isHidden: '0'
+            cssClass: twitter
+            isExternal: '1'
+    -
+        title: Instagram
+        nesting: null
+        type: url
+        url: https://www.instagram.com/xxxxxxx/
+        code: icon
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: instagram
+            isExternal: '1'
+name: Footer-Social

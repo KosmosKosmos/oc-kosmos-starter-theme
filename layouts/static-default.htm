@@ -1,0 +1,31 @@
+description = "Standard-Layout"
+
+[staticPage]
+useContent = 0
+default = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'components/meta.htm' %}
+    {% partial 'components/styles.htm' %}
+</head>
+
+<body class="page-{{ this.page.id }}">
+<header>
+    {% partial 'components/navigation' %}
+    {% partial 'components/keyvisual' %}
+</header>
+
+<main uk-height-viewport="expand: true">
+    {variable name="sections" type="repeater" tab="Segments" prompt="Seiten-Element hinzufügen" groups="themes/kosmoskosmos-starter/meta/static-types.yaml"} {/variable}
+
+    {% for section in sections %}
+        {{section | json_encode}}
+    {% endfor %}
+</main>
+
+{% partial "components/footer" %}
+{% partial 'components/scripts.htm' %}
+</body>
+</html>

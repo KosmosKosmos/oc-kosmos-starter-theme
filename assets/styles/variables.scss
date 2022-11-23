@@ -1,5 +1,5 @@
-$global-primary-background: #8618c2;
-$global-secondary-background: #055554;
+$global-primary-background: $primaryColor;
+$global-secondary-background: $secondaryColor;
 
 $global-font-family: 'Open Sans', sans-serif;
 $base-body-font-weight: 300;
@@ -10,9 +10,9 @@ $offcanvas-bar-width: 340px;
 $global-link-color: lighten($global-primary-background, 10);
 
 $dropdown-padding: 10px;
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-primary-background;
 
 @import "uikit/variables-theme";
 
 $dropdown-nav-font-size: $global-font-size;
-$section-padding-vertical: $global-margin;
-$section-padding-vertical-m: $global-medium-margin;

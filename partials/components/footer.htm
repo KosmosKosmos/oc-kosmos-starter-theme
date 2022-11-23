@@ -1,10 +1,24 @@
-[viewBag]
+[staticMenu footer]
+code = "footer"
+
+[staticMenu footerSocial]
+code = "footer-social"
 
 ==
 
-{% component 'cookieBanner' %}
-<div class="uk-background-primary uk-light">
-    <div class="uk-container uk-padding ">
-        {{'Copyright'|_}} {{app_name}} {{ 'now' | date('Y') }}
+<footer class="uk-background-primary uk-light">
+    <div class="uk-text-center uk-container uk-padding">
+        <img id="logo" src="{{ 'assets/images/logo.svg' | theme }}" width="153" uk-svg style="color: #fff">
+        <nav class="uk-margin-small" uk-navbar>
+            <div class="uk-navbar-center">
+                {% partial 'components/menu' menu=footer class="footer" mobileVisible=true %}
+            </div>
+        </nav>
+        <nav class="uk-margin-small" uk-navbar>
+            <div class="uk-navbar-center">
+                {% partial 'components/menu' menu=footerSocial class="footer-social" mobileVisible=true %}
+            </div>
+        </nav>
+        <div class="uk-visible@m">{{'Copyright'|_}} {{app_name}} {{ 'now' | date('Y') }}</div>
     </div>
-</div>
+</footer>

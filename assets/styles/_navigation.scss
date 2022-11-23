@@ -1,0 +1,189 @@
+.navigation {
+    transition: all 0.3s ease-in-out, box-shadow .7s;
+    &.scrolled-down {
+        transform: translateY(-100%);
+    }
+    &.scrolled-up {
+        transform: translateY(0);
+    }
+    .logo-link {
+        padding: 10px 0;
+        color: #fff;
+    }
+    #logo {
+        height: 65px;
+    }
+    .icon-nav {
+        a {
+            padding-left: 13px;
+            padding-right: 13px;
+        }
+    }
+    .uk-container {
+        position: relative;
+    }
+    li:hover .icon, li.uk-active .icon {
+        border-color: $global-primary-background;
+    }
+    .uk-navbar-dropdown {
+        border-radius: 3px;
+        padding: 0;
+        width: auto;
+        font-weight: 100;
+        a {
+            font-size: .8em;
+            color: #fff;
+            white-space: nowrap;
+        }
+        li {
+            padding: 5px 8px;
+            &:hover, &.uk-active {
+                background-color: rgba(#999, .5);
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        .dropdown-item {
+            display: flex;
+        }
+        .icon {
+            display: flex;
+            margin-right: 10px;
+            position: relative;
+            top: -2px;
+            width: 18px;
+            height: 18px;
+            justify-content: center;
+            svg {
+                width: 27px;
+                height: 25px;
+            }
+        }
+        &:before {
+            content: "";
+            height: 0;
+            position: absolute;
+            border-style: solid;
+            border-color: transparent transparent $dropdown-background transparent;
+            border-width: 0 14px 18px 14px;
+            top: -18px;
+            right: 15px;
+            z-index: 100;
+        }
+    }
+    .burger-menu {
+        $width:30px;
+        $height:3px;
+        width:$width;
+        height:$height;
+        display:block;
+        //        margin-left:-$width/2;
+        margin-top:-$height/2;
+        cursor: pointer;
+        position: relative;
+        & > span {
+            width: $width;
+            height: 2.5px;
+            background: $navbar-nav-item-color;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.5px;
+            margin-top: 0;
+            transition: background .3s;
+        }
+        $hamburger-spacing:10px;
+        .burger-menu-1{
+            transform:translate3d(0,-$hamburger-spacing,0);
+        }
+        .burger-menu-2{
+            transform:translate3d(0,0,0);
+        }
+        .burger-menu-3{
+            transform:translate3d(0,$hamburger-spacing,0);
+        }
+    }
+    #mobile-navigation {
+        .uk-navbar-nav.mobile {
+            &.main {
+                margin: 10px 0;
+                display: block;
+            }
+            a {
+                font-size: 1.45em;
+                line-height: 2.2em;
+                font-weight: 300;
+                min-height: 50px;
+                text-transform: uppercase;
+            }
+            .uk-navbar-dropdown {
+                svg {
+                    width: 27px;
+                    height: 52px !important;
+                }
+                &:before {
+                    right: calc(50% - 13px);
+                }
+            }
+        }
+    }
+    &.expanded {
+        box-shadow: 0 10px 10px rgba(#808080, .4);
+        .uk-container {
+            &:after {
+                opacity: 0;
+            }
+            li.visible-menu-toggle {
+                display: block !important;
+            }
+        }
+    }
+}
+footer {
+    .uk-navbar-nav.footer {
+        margin-top: 30px;
+        li {
+            a {
+                padding: 0 13px;
+                min-height: inherit;
+            }
+            &:not(:last-child) {
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    right: -5px;
+                    top: -3px;
+                    content: "|";
+                }
+            }
+        }
+    }
+    .uk-navbar-nav.footer-social {
+        a {
+            padding: 0 20px;
+        }
+        .icon {
+            padding: 5px !important;
+            width: 35px;
+            height: 35px;
+            color: #fff;
+            background-color: $global-primary-background;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color .3s;
+            &:hover {
+                background-color: #fff;
+                color: $global-primary-background;
+            }
+            svg {
+                width: 24px;
+                height: auto;
+            }
+        }
+    }
+}
