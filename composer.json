@@ -2,7 +2,19 @@
     "name": "kosmoskosmos/starter-theme",
     "type": "october-theme",
     "description": "A starter theme for KosmosKosmos projects",
+    "authors": [
+        {
+            "name": "Mathias Pürzl",
+            "email": "mail@dasrotequadrat.de",
+            "role": "Frontend-Developer"
+        }
+    ],
     "require": {
         "composer/installers": "~1.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
     }
 }

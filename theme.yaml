@@ -7,12 +7,10 @@ homepage: 'https://kosmoskosmos.de'
 require:
 #  - RainLab.Translate
   - RainLab.Pages
-  - Panakour.Translate
-  - Luketowers.Essentialvars
-#  - ToughDeveloper.ImageResizer
-#  - DasRoteQuadrat.BetterContentEditor
-#  - Indikator.News
-#  - JanVince.SmallContactForm
+#  - Panakour.Translate
+  - KosmosKosmos.Essentialvars
+#  - Luketowers.Essentialvars
+  - KosmosKosmos.BetterContentEditor
 
 form:
     fields:
