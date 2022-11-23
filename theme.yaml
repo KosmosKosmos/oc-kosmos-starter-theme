@@ -8,7 +8,6 @@ require:
   - RainLab.Pages
   - KosmosKosmos.Essentialvars
   - KosmosKosmos.BetterContentEditor
-
 form:
     fields:
         primary_color:
