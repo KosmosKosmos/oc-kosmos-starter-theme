@@ -5,6 +5,7 @@ authorCode: "KosmosKosmos"
 code: "Starter"
 homepage: 'https://kosmoskosmos.de'
 require:
+  - Offline.Gdpr
   - RainLab.Pages
   - KosmosKosmos.Essentialvars
   - KosmosKosmos.Easyrechtssicher
