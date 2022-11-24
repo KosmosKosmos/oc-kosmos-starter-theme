@@ -3,16 +3,15 @@ Dieses Starter-Thema verwendet die Frameworks [Vue](https://vuejs.org/v2/api/) u
 
 ## Nötige Plugins
 Die für das Theme benötigten Plugins sind:
-- [ ] Luketowers.Essentialvars
-- [ ] ToughDeveloper.ImageResizer
-- [ ] DasRoteQuadrat.BetterContentEditor
-- [ ] KosmosKosmos.ContactForm
+- [ ] RainLab.Pages
+- [ ] KosmosKosmos.Essentialvars
+- [ ] KosmosKosmos.BetterContentEditor
+- [ ] KosmosKosmos.Easyrechtssicher
 - [ ] Offline.Gdpr [Doku](https://github.com/OFFLINE-GmbH/oc-gdpr-plugin)
 
 ## Optionale Plugins
 Sollte die Seite mehrsprachig verwendet werde, dann werden des weiteren folgende Plugins benötigt:
 - [ ] RainLab.Translate
-- [ ] RainLab.Pages
 
 ## Wichtige Ordern
 Unter `partials/components` befinden sich die allgemeinen Partials, die keinem Plugin sondern dem Theme zugeordnet sind.
