@@ -28,7 +28,7 @@
 </div>
 #}
 {# with image#}
-{% component 'imageuploader' item=this.page.id class="uk-background-cover" leaveOpen=true size=1700 attributes='uk-height-viewport=offset-top:true' tag="div" %}
+{% component 'imageuploader' file='keyvisuals/'~this.page.id class="uk-background-cover" leaveOpen=true size=1700 attributes='uk-height-viewport=offset-top:true' tag="div" %}
 <div class="uk-position-center uk-light uk-text-center uk-position-z-index">
     <img src="{{'assets/images/logo_light.svg' | theme}}" class="banner-logo uk-margin-bottom">
     <div class="uk-margin-remove">

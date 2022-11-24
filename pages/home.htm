@@ -12,7 +12,7 @@ is_hidden = 0
         <div>
             <div class="uk-card uk-card-default uk-box-shadow-medium uk-box-shadow-hover-large uk-flex uk-flex-column uk-flex-between">
                 <div class="uk-card-media-top">
-                    {% component 'imageuploader' item=this.page.id~'-img1' class="uk-width-1-1" size=700 tag="img" %}
+                    {% component 'imageuploader' file=this.page.id~'/img1' class="uk-width-1-1" size=700 tag="img" %}
                 </div>
                 <div class="uk-card-body">
                     {% component 'contenteditor' file=this.page.id~'/text2.htm' %}
@@ -25,7 +25,7 @@ is_hidden = 0
                     {% component 'contenteditor' file=this.page.id~'/text3.htm' %}
                 </div>
                 <div class="uk-card-media-bottom">
-                    {% component 'imageuploader' item=this.page.id~'-img2' class="uk-width-1-1" size=700 tag="img" %}
+                    {% component 'imageuploader' file=this.page.id~'/img2' class="uk-width-1-1" size=700 tag="img" %}
                 </div>
             </div>
         </div>
